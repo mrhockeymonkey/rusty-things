@@ -1,0 +1,25 @@
+[package]
+name = "egui_graphs_wasm"
+version = "0.1.0"
+authors = ["Dmitrii Samsonov <blitzarx1@gmail.com>"]
+license = "MIT"
+edition = "2021"
+
+[dependencies]
+egui_graphs = { version = "0.15.0", features = ["events"] }
+egui = "0.23"
+egui_plot = "0.23"
+serde_json = "1.0"
+eframe = "0.23"
+petgraph = "0.6"
+fdg-sim = "0.9"
+rand = "0.8"
+crossbeam = "0.8"
+log = "0.4"
+
+# web:
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen = "0.2.88"
+wasm-bindgen-futures = "0.4"
+getrandom = { version = "0.2", features = ["js"] }
+
