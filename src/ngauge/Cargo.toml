@@ -1,0 +1,7 @@
+[workspace]
+
+members = [
+    "add", "examples/rs-gauge",
+    "ngauge-wasi",
+    "rs-metric"
+]
