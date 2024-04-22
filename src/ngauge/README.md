@@ -9,6 +9,22 @@ Each of these components is compiled and hosted by `MetricHost` in a loop.
 
 ```bash
 cargo run -p ngauge-wasi
+
+#MetricHost - Adding wasi component: ../target/wasm32-wasi/release/rs_gauge.wasm
+#MetricHost - Adding wasi component: ../examples/py-gauge/py-gauge.wasm
+#Calling collection - 1
+#rs-gauge will count how many strings were given
+#got foo
+#got bar
+#got baz
+#MetricHost - Component 1 Measure returned 3
+#py-gauge will measure how many strings begin with 'b'
+#foo
+#bar
+#baz
+#MetricHost - Component 2 Measure returned 2
+#Sleeping 5s
+
 ```
 
 
