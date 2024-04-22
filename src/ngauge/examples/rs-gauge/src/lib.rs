@@ -12,6 +12,7 @@ impl Guest for Component {
     }
 
     fn measure(assets: Vec<String>) -> u32 {
+        println!("rs-gauge will count how many strings were given");
         assets
             .iter()
             .inspect(|s| {println!("got {}", s)})

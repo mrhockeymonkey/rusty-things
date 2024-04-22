@@ -8,6 +8,7 @@ class Example(example.Example):
         return "Hello from py-gauge!"
 
     def measure(self, assets: list[str]) -> int:
+        print("py-gauge will measure how many strings begin with 'b'")
         for a in assets:
             print(a)
-        return len(assets)
+        return len([x for x in assets if x.startswith("b")])

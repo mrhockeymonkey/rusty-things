@@ -1,25 +1,16 @@
 # NGauge
 
+This is an example of using wasi component in a plugin context. 
 
-https://github.com/bytecodealliance/wasmtime/blob/main/docs/WASI-tutorial.md#from-rust
-https://github.com/bytecodealliance/wasmtime/blob/main/examples/wasi/main.rs
-https://docs.wasmtime.dev/examples-rust-wasi.html
-Initial idea to use WASI
+In this example app multiple wasi components in different languages implement the `measure: func(assets: list<string>) -> u32` interface. 
+
+Each of these components is compiled and hosted by `MetricHost` in a loop. 
+
 
 ```bash
-cargo +nightly run -p ngauge-wasi
+cargo run -p ngauge-wasi
 ```
 
-question: can io all be done with files instead of stdin/stdout
-
-
-component model approach
-
-```bash
-rustc --version
-# rustc 1.77.2 (25ef9e3d8 2024-04-09)
-
-```
 
 ## Rust components
 
@@ -41,7 +32,7 @@ cargo component build --release
 
 ```
 
-# Python Components
+## Python Components
 
 See: https://component-model.bytecodealliance.org/language-support/python.html
 
@@ -55,7 +46,14 @@ componentize-py --wit-path ./wit/world.wit --world example bindings .
 # now you can implement the generate pythong class, see py-gauge.py
 
 # compile
-componentize-py --wit-path ../../add/wit/world.wit --world example componentize py-gauge -o py-gauge.wasm
+componentize-py --wit-path ./wit/world.wit --world example componentize py-gauge -o py-gauge.wasm
 # Component built successfully
 
 ```
+
+## Useful Links
+
+https://github.com/bytecodealliance/wasmtime/blob/main/docs/WASI-tutorial.md#from-rust
+https://github.com/bytecodealliance/wasmtime/blob/main/examples/wasi/main.rs
+https://docs.wasmtime.dev/examples-rust-wasi.html
+https://component-model.bytecodealliance.org/language-support/rust.html#exporting-an-interface-with-cargo-component

@@ -1,19 +1,16 @@
 
-pub mod discovery {
+pub struct MetricPlugin {
+    pub path: String
+}
 
-    pub struct MetricPlugin {
-        pub path: String
-    }
-
-    // TODO make this dynamic somehow, possible read all wasm files from a single directory
-    pub fn get_metric_plugins() -> Vec<MetricPlugin> {
-        vec![
-            MetricPlugin{
-                path: "/home/scott/code/rusty-things/src/ngauge/target/wasm32-wasi/debug/add.wasm".to_string()
-            },
-            MetricPlugin{
-                path: "/home/scott/code/rusty-things/src/ngauge/examples/py-gauge/py-gauge.wasm".to_string()
-            }
-        ]
-    }
+// TODO currently just simulates finding wasm files, but could be made to read from disk as new ones are added
+pub fn get_metric_plugins() -> Vec<MetricPlugin> {
+    vec![
+        MetricPlugin{
+            path: "../target/wasm32-wasi/release/rs_gauge.wasm".to_string()
+        },
+        MetricPlugin{
+            path: "../examples/py-gauge/py-gauge.wasm".to_string()
+        }
+    ]
 }
